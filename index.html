@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Usuarios</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Gestión de Usuarios</h1>
+            <p>CRUD completo con base de datos</p>
+        </header>
+
+        <main>
+            <!-- Formulario para agregar/editar usuarios -->
+            <section class="form-section">
+                <h2 id="form-title">Agregar Nuevo Usuario</h2>
+                <form id="user-form">
+                    <input type="hidden" id="user-id">
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edad">Edad:</label>
+                        <input type="number" id="edad" name="edad" min="1" max="120">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn">Guardar</button>
+                        <button type="button" id="cancel-btn" style="display: none;">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Búsqueda y filtros -->
+            <section class="search-section">
+                <h3>Buscar Usuarios</h3>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Buscar por nombre o email...">
+                    <button id="search-btn">Buscar</button>
+                    <button id="clear-search">Limpiar</button>
+                </div>
+            </section>
+
+            <!-- Tabla de usuarios -->
+            <section class="table-section">
+                <h3>Lista de Usuarios</h3>
+                <div class="table-container">
+                    <table id="users-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Edad</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-tbody">
+                            <!-- Los datos se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-info">
+                    <span id="table-count">0 usuarios encontrados</span>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal de confirmación -->
+        <div id="confirm-modal" class="modal">
+            <div class="modal-content">
+                <h3>Confirmar Eliminación</h3>
+                <p>¿Estás seguro de que deseas eliminar este usuario?</p>
+                <div class="modal-actions">
+                    <button id="confirm-delete">Sí, Eliminar</button>
+                    <button id="cancel-delete">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
